@@ -22,7 +22,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.6}
-.in{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.in{max-width:1320px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--rose);outline-offset:3px}
 .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
@@ -130,7 +130,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3.6vw,2.4rem)
 .phone{position:absolute;right:-12px;bottom:-24px;width:21%;max-width:120px;aspect-ratio:9/19;background:var(--ink);border:2px solid var(--ink);border-radius:16px;padding:5px 4px;z-index:4;transform:rotate(3deg)}
 .pc-img .phone img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:top;border:0;border-radius:11px;background:var(--paper-2)}
 .why{padding-block:1rem 3rem;position:relative;z-index:2}
-.why-sheet{list-style:none;margin:1.2rem 0 0;padding:.4rem clamp(1.1rem,3.5vw,2.4rem);background:var(--paper);border:1.5px solid var(--ink);transform:rotate(-.4deg);max-width:860px}
+.why-sheet{list-style:none;margin:1.2rem 0 0;padding:.4rem clamp(1.1rem,3.5vw,2.4rem);background:var(--paper);border:1.5px solid var(--ink);transform:rotate(-.4deg);max-width:1040px}
 .why-sheet li{display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:.4rem 1rem;padding:1.3rem 0;border-bottom:1.5px dashed color-mix(in srgb,var(--ink) 35%,transparent)}
 .why-sheet li:last-child{border-bottom:0}
 .why-sheet .mono{color:var(--rose);padding-top:.45rem}
@@ -338,7 +338,7 @@ body>*:not(header):not(footer):not(.scrim){}
 @media(min-width:800px){.ft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ft-all{margin:1.8rem 0 0}
 .svc{padding-block:2.6rem 2rem;position:relative;z-index:2}
-.svc .sheet{max-width:860px}
+.svc .sheet{max-width:1040px}
 .sv-t{width:100%;border-collapse:collapse;margin:1.2rem 0 .6rem;background:var(--paper)}
 .sv-t th,.sv-t td{border:1.5px solid var(--ink);padding:.6rem .8rem;text-align:left;vertical-align:top}
 .sv-t th{background:var(--kraft);font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
@@ -353,7 +353,7 @@ body>*:not(header):not(footer):not(.scrim){}
 .why.short .why-sheet li p{display:none}
 .why.short .why-sheet li{padding:.8rem 0}
 .why.short .why-sheet h3{margin:0}
-.about-h{padding-block:2.4rem 2rem;position:relative;z-index:2;max-width:860px}
+.about-h{padding-block:2.4rem 2rem;position:relative;z-index:2;max-width:1040px}
 .about-h .ab2-p{max-width:60ch;line-height:1.75;margin:.9rem 0 1rem}
 
 /* lite round 2 */
@@ -471,8 +471,8 @@ html,body{overflow-x:clip;max-width:100%}
 .ft-a{display:inline-flex;align-items:center;gap:.5rem;font-size:1.05rem;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .ft-a .ig{width:22px;height:22px;fill:none;stroke:var(--rose);stroke-width:1.7}
 .ft-a .ig .dot{fill:var(--rose);stroke:none}
-.wm{position:relative;width:min(100%,1080px);margin:5rem auto .6rem;padding-inline:.9rem;font-family:"Montserrat",var(--sans);font-weight:700}
-.wm-in{display:flex;justify-content:center;font-size:clamp(2.2rem,12.6vw,9.4rem);line-height:.74;letter-spacing:-.02em;height:.78em;overflow:visible;position:relative;white-space:nowrap;-webkit-mask-image:none}
+.wm{position:relative;width:min(100%,1320px);margin:5rem auto .6rem;padding-inline:.9rem;font-family:"Montserrat",var(--sans);font-weight:700}
+.wm-in{display:flex;justify-content:center;font-size:clamp(2.2rem,12.6vw,11.4rem);line-height:.74;letter-spacing:-.02em;height:.78em;overflow:visible;position:relative;white-space:nowrap;-webkit-mask-image:none}
 .wm .lt{position:relative;display:inline-block;color:transparent;background:linear-gradient(to bottom,color-mix(in srgb,var(--ink) 30%,transparent) 5%,transparent 100%);-webkit-background-clip:text;background-clip:text}
 .wm .lt.d2{background-image:linear-gradient(to bottom,color-mix(in srgb,var(--rose) 45%,transparent) 5%,transparent 100%)}
 .wm .fl{position:absolute;left:50%;bottom:calc(100% - var(--o,.3em));width:calc(.46em*var(--k));height:calc(.61em*var(--k));margin-left:calc(-.23em*var(--k));transform-origin:50% 100%;-webkit-text-fill-color:initial;pointer-events:none}
@@ -491,6 +491,28 @@ html[lang="mk"] .hero .book h1{font-size:clamp(1.05rem,5.2vw,2rem)}
 @media(max-width:360px){.hero .aside .hand{font-size:.86rem!important}}
 .about-h .ab2-p{max-width:78ch;text-wrap:balance}
 @media(max-width:700px){.about-h .ab2-p{max-width:100%}}
+
+@media(min-width:900px){
+/* services: two balanced columns */
+.svc .sheet{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);column-gap:clamp(2.5rem,5vw,4.5rem);align-items:start}
+.svc .sheet .sv-l,.svc .sheet .sv-r{min-width:0}
+.svc .sheet .sv-ex{grid-template-columns:minmax(0,1fr);margin-bottom:0}
+.svc .sheet .sv-eh{margin-top:0}
+.svc .sheet .sv-l .cta{margin-top:1.6rem}
+/* why: number | title | description in one row */
+.why-sheet li{grid-template-columns:2.6rem minmax(0,1fr)}
+.why-sheet li>div{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);column-gap:clamp(1.5rem,4vw,3.5rem);align-items:baseline}
+.why-sheet li>div h3{margin:0}
+.why-sheet li>div p{max-width:none}
+/* contact: heading and intro left, the two options right */
+.contact .letter{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);grid-template-areas:"k o" "h o" "p o" "b o";column-gap:clamp(2rem,4vw,3.5rem);align-content:start}
+.contact .letter>.mono{grid-area:k}.contact .letter>h2{grid-area:h}.contact .letter>p:not(.c-brief):not(.mono){grid-area:p}.contact .letter>.c-opts{grid-area:o;max-width:none;margin:0;align-self:start}.contact .letter>.c-brief{grid-area:b;margin-top:1rem}
+/* about on home: lead left, text right */
+.about-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:clamp(2rem,5vw,4.5rem);align-items:start;max-width:none}
+.about-h>.mono{grid-column:1/-1}.about-h>.lead{grid-column:1;margin:0}.about-h>.ab2-p{grid-column:2;margin:.2rem 0 1rem;max-width:none}.about-h>p:last-child{grid-column:2}
+}
+@media(max-width:899px){.svc .sheet{display:flex;flex-direction:column}.svc .sheet .sv-l,.svc .sheet .sv-r{display:contents}.svc .sheet .sv-l .cta{order:9;align-self:flex-start}}
+@media(min-width:900px){.contact .letter{grid-template-rows:auto auto auto 1fr}.contact .letter>.c-brief{align-self:end}.svc .sheet h2{font-size:clamp(1.5rem,2.3vw,2.1rem)}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -596,10 +618,14 @@ html[lang="mk"] .hero .book h1{font-size:clamp(1.05rem,5.2vw,2rem)}
   <section id="services" class="svc" data-pg="home" aria-labelledby="h-sv">
     <div class="sheet">
       <span class="tape" style="left:40px;top:-12px"></span>
+      <div class="sv-l">
       <p class="mono" style="color:var(--rose)" data-i18n="sv_k"></p>
       <h2 id="h-sv" data-i18n="sv_h"></h2>
       <p data-i18n="sv_p"></p>
       <ul class="sv-base"><li data-i18n="sv_r1"></li><li data-i18n="sv_r2"></li><li data-i18n="sv_r3"></li></ul>
+      <a class="cta" id="cta-sv" href="#contact" data-go="contact" data-i18n="cta"></a>
+      </div>
+      <div class="sv-r">
       <h3 class="sv-eh" data-i18n="sv_eh"></h3>
       <p data-i18n="sv_ep"></p>
       <ol class="sv-ex">
@@ -610,7 +636,7 @@ html[lang="mk"] .hero .book h1{font-size:clamp(1.05rem,5.2vw,2rem)}
         <li><h4 data-i18n="e5h"></h4><p data-i18n="e5p"></p></li>
         <li><h4 data-i18n="e6h"></h4><p data-i18n="e6p"></p></li>
       </ol>
-      <a class="cta" id="cta-sv" href="#contact" data-go="contact" data-i18n="cta"></a>
+      </div>
     </div>
   </section>
 
