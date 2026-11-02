@@ -852,6 +852,32 @@ section[id]{scroll-margin-top:96px}
 .top{padding-block:.8rem .75rem!important}
 section[id]{scroll-margin-top:78px}
 }
+
+/* v72 why: two columns */
+.why-cols{display:grid;grid-template-columns:1fr;gap:0}
+.why-col{position:relative;min-width:0}
+.why-col .why-sheet{position:relative;max-width:none}
+.why-col .why-sheet::before,.why-col .why-sheet::after{content:"";position:absolute;width:84px;height:26px;background:color-mix(in srgb,var(--rose-2) 75%,transparent);z-index:3;pointer-events:none}
+.why-col .why-sheet::before{top:-13px;left:-22px;transform:rotate(-38deg)}
+.why-col .why-sheet::after{bottom:-12px;right:-22px;transform:rotate(-38deg)}
+.why-col.c2 .why-sheet::before{left:auto;right:-22px;transform:rotate(36deg)}
+.why-col.c2 .why-sheet::after{right:auto;left:-22px;transform:rotate(36deg)}
+.why-sheet li{transition:transform .25s ease,background-color .25s ease}
+.why-sheet li .mono{display:inline-block;transition:transform .25s ease,color .25s ease}
+.why-sheet li h3{transition:color .25s ease}
+.why-sheet li:hover{transform:translateX(4px)}
+.why-sheet li:hover .mono{color:var(--ink);transform:scale(1.22) rotate(-6deg)}
+.why-sheet li:hover h3{color:var(--rose)}
+.why-ar{position:absolute;width:54px;height:36px;right:8%;top:-4px;transform:rotate(8deg);pointer-events:none}
+.why-ar use{stroke:var(--rose)}
+@media (min-width:900px){
+.why{max-width:1180px!important}
+.why-cols{grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.4rem);align-items:start}
+.why2-h{margin-top:0!important}
+.why-col h2{margin-top:0}
+}
+@media (max-width:899px){.why-col+.why-col{margin-top:90px}.why-ar{display:none!important}}
+@media (hover:none){.why-sheet li:hover{transform:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -997,22 +1023,22 @@ section[id]{scroll-margin-top:78px}
 
   <section id="why" class="why" data-pg="home" aria-labelledby="h-why">
     <p class="mono" style="color:var(--rose)" data-i18n="why_k"></p>
-    <h2 id="h-why" data-i18n="why_h"></h2>
-    <ol class="why-sheet">
+    <div class="why-cols">
+<div class="why-col c1"><h2 id="h-why" data-i18n="why_h"></h2><ol class="why-sheet">
       <li><span class="mono">01</span><div><h3 data-i18n="w1h"></h3><p data-i18n="w1p"></p></div></li>
       <li><span class="mono">02</span><div><h3 data-i18n="w2h"></h3><p data-i18n="w2p"></p></div></li>
       <li><span class="mono">03</span><div><h3 data-i18n="w3h"></h3><p data-i18n="w3p"></p></div></li>
       <li><span class="mono">04</span><div><h3 data-i18n="w4h"></h3><p data-i18n="w4p"></p></div></li>
       <li><span class="mono">05</span><div><h3 data-i18n="w5h"></h3><p data-i18n="w5p"></p></div></li>
-    </ol>
-    <h2 id="h-why2" class="why2-h" data-i18n="why2_h"></h2>
-    <ol class="why-sheet why2">
+    </ol></div>
+<div class="why-col c2"><h2 id="h-why2" class="why2-h" data-i18n="why2_h"></h2><ol class="why-sheet why2">
       <li><span class="mono">01</span><div><h3 data-i18n="w21h"></h3></div></li>
       <li><span class="mono">02</span><div><h3 data-i18n="w22h"></h3></div></li>
       <li><span class="mono">03</span><div><h3 data-i18n="w23h"></h3></div></li>
       <li><span class="mono">04</span><div><h3 data-i18n="w24h"></h3></div></li>
       <li><span class="mono">05</span><div><h3 data-i18n="w25h"></h3></div></li>
-    </ol>
+    </ol></div>
+</div>
   </section>
 
   <section id="words" class="words" data-pg="none" aria-labelledby="h-words">
