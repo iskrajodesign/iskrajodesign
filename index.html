@@ -1015,6 +1015,15 @@ section[id]{scroll-margin-top:110px}
 .why-sheet .mono .wf{width:26px;height:35px;stroke:var(--rose);fill:none}
 .why-sheet li:hover .mono{transform:scale(1.12) rotate(-6deg)}
 .why-col.c1 .why-sheet::before{top:4px;left:-24px}
+
+/* v88 contact text bigger */
+.contact .letter{grid-template-columns:minmax(0,.75fr) minmax(0,1.6fr)}
+.contact .letter>p:not(.c-brief):not(.mono){font-size:1.2rem;line-height:1.6;max-width:none}
+.contact .letter>.mono{font-size:.9rem}
+.c-opt h3{font-size:1.75rem}
+.c-opt p{font-size:1.2rem;line-height:1.55}
+.contact .c-opt .cta,.contact .letter .c-opt .cta.cream{font-size:1rem;width:min(100%,21rem);min-height:5.2rem;letter-spacing:.07em}
+@media(max-width:700px){.c-opt h3{font-size:1.5rem}.c-opt p{font-size:1.1rem}.contact .letter>p:not(.c-brief):not(.mono){font-size:1.1rem}.contact .c-opt .cta,.contact .letter .c-opt .cta.cream{font-size:.92rem}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
