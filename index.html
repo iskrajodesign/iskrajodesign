@@ -995,6 +995,13 @@ section[id]{scroll-margin-top:110px}
 .zoomwrap .desk-stick::before{inset:auto;left:-20px;right:-20px;top:0;height:calc(var(--pad,100px) + 70px);background:url(img/desk.jpg) top/100% 3500%;filter:blur(5px)}
 }
 .contact .c-opt #cta-book2{flex-direction:column;gap:0}
+
+/* v82 */
+.wm .lt{padding-block:.3em;margin-block:-.3em}
+.beliefs .note-p:nth-child(1) .tape{background:color-mix(in srgb,var(--paper) 92%,transparent);box-shadow:0 0 0 1px rgba(58,35,48,.12)}
+.beliefs .note-p:nth-child(3) .tape{background:color-mix(in srgb,var(--kraft) 92%,transparent);box-shadow:0 0 0 1px rgba(58,35,48,.12)}
+.contact .letter .c-opt .cta.cream{box-shadow:5px 5px 0 #b89f78}
+.contact .letter .c-opt .cta.cream:active{box-shadow:2px 2px 0 #b89f78}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -1959,6 +1966,9 @@ b.addEventListener("click",function(){var open=f.hidden;f.hidden=!open;b.setAttr
  if(par.classList.contains("note-p")){t.style.left="10px";t.style.setProperty("--tr","-8deg");t2.style.cssText="right:10px;bottom:-11px;width:70px;height:22px;--tr:-8deg";}
  else{t2.style.cssText="right:34px;bottom:-12px;--tr:-4deg";}
  par.appendChild(t2);});})();
+
+(function(){var b=document.getElementById("cta-book");if(!b)return;b.removeAttribute("target");b.removeAttribute("rel");b.href="#contact";
+ b.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();var c=document.getElementById("contact");if(!c)return;var nh=(document.querySelector(".top")||{offsetHeight:80}).offsetHeight;window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-nh-12,behavior:"smooth"});},true);})();
 </script>
 
 </body></html>
