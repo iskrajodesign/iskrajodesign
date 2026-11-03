@@ -1750,7 +1750,7 @@ function zoomInit(g,st,sc,desk,cm,items,hint){
   card.appendChild(K);card.appendChild(H);card.appendChild(Pp);card.appendChild(go);
   var dots=el("div","zh-dots"),db=[];
   items.forEach(function(id,i){var b=el("button","zh-d",(i<9?"0":"")+(i+1));b.setAttribute("aria-label",nm(P[id]));b.addEventListener("click",function(){deskGo(i,true);});dots.appendChild(b);db.push(b);});
-  var bk=el("button","more zh-back",T[lang].bk||"← Назад");bk.addEventListener("click",function(){var t=document.querySelector(".ft-all");if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-G.nh-24,behavior:"smooth"});});
+  var bk=el("button","more zh-back",T[lang].bk||"← Назад");bk.addEventListener("click",function(){var t=document.querySelector(".ft-all");if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-G.nh-24,behavior:"instant"});});
   hud.appendChild(card);hud.appendChild(dots);hud.appendChild(bk);st.appendChild(hud);
   var sk=el("div","zh-scroll",({mk:"Скролајте и седнете за масата",en:"Scroll to sit down at the desk",sr:"Skrolujte i sednite za sto"})[lang]||"");st.appendChild(sk);
   go.addEventListener("click",function(){openDialog(g._id,go);});
@@ -1812,7 +1812,7 @@ if($("#d-back"))$("#d-back").addEventListener("click",function(){closeDialog();}
     if(b.closest(".pg-back")){var e=navStack.pop();if(e){showPage(e.p);setTimeout(function(){window.scrollTo(0,e.y);},40);}else{showPage("home");window.scrollTo(0,0);}return;}
     if(g!==curPage&&(g==="work"||g==="services"||g==="photos"||g==="about"||curPage!=="home"))navStack.push({p:curPage,y:window.scrollY});
     if(g==="work"||g==="services"||g==="photos"||g==="about"){showPage(g);window.scrollTo(0,0);}
-    else{var was=curPage;showPage("home");if(g==="home")window.scrollTo({top:0,behavior:"smooth"});else setTimeout(function(){scrollToId(g);},was==="home"?0:80);}});});})();
+    else{var was=curPage;showPage("home");if(g==="home")window.scrollTo({top:0,behavior:"instant"});else setTimeout(function(){scrollToId(g);},was==="home"?0:80);}});});})();
 renderFeat();renderSv();
 var m0=(location.hash||"").match(/^#\/(work|services|photos|about)$/);showPage(m0?m0[1]:"home");
 
@@ -1828,7 +1828,7 @@ setLang(lang);
   var fly=document.getElementById("fly"),cat=document.getElementById("cat");if(!fly||!cat)return;
 
 
-  (function(){var m=document.querySelector("a.mark");if(m)m.addEventListener("click",function(e){e.preventDefault();var t=document.querySelector(".top");if(t)t.classList.remove("open");if(window.__showPage)window.__showPage("home");window.scrollTo({top:0,behavior:"smooth"});});})();
+  (function(){var m=document.querySelector("a.mark");if(m)m.addEventListener("click",function(e){e.preventDefault();var t=document.querySelector(".top");if(t)t.classList.remove("open");if(window.__showPage)window.__showPage("home");window.scrollTo({top:0,behavior:"instant"});});})();
   var CAL="https://calendly.com/iskrajodesign/30min";/* Calendly линк (Искра го потврди на 2026-11-01) */
   (function(){var b=document.getElementById("cta-book");if(b&&CAL){b.href=CAL;b.target="_blank";b.rel="noopener";}})();
 
@@ -1991,7 +1991,7 @@ b.addEventListener("click",function(){var open=f.hidden;f.hidden=!open;b.setAttr
  par.appendChild(t2);});})();
 
 (function(){var b=document.getElementById("cta-book");if(!b)return;b.removeAttribute("target");b.removeAttribute("rel");b.href="#contact";
- b.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();var c=document.getElementById("contact");if(!c)return;var nh=(document.querySelector(".top")||{offsetHeight:80}).offsetHeight;window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-nh-12,behavior:"smooth"});},true);})();
+ b.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();var c=document.getElementById("contact");if(!c)return;var nh=(document.querySelector(".top")||{offsetHeight:80}).offsetHeight;window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-nh-12,behavior:"instant"});},true);})();
 </script>
 
 </body></html>
