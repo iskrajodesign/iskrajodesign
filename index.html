@@ -1104,6 +1104,7 @@ section.about-pg{padding-bottom:20px!important}
 .contact .letter>.mono,.letter .mono,.contact .letter>.mono{color:var(--paper)!important}
 .contact .letter>h2,.contact .letter>p:not(.c-brief){color:var(--paper)}
 .contact .letter>p:not(.c-brief):not(.mono) a{color:var(--paper)}
+section[id]{scroll-margin-top:24px!important}@media(max-width:699px){section[id]{scroll-margin-top:14px!important}}#home{scroll-margin-top:0!important}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -2085,7 +2086,7 @@ b.addEventListener("click",function(){var open=f.hidden;f.hidden=!open;b.setAttr
  par.appendChild(t2);});})();
 
 (function(){var b=document.getElementById("cta-book");if(!b)return;b.removeAttribute("target");b.removeAttribute("rel");b.href="#contact";
- b.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();var c=document.getElementById("contact");if(!c)return;var nh=(document.querySelector(".top")||{offsetHeight:80}).offsetHeight;window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-nh-12,behavior:"instant"});},true);})();
+ b.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();var c=document.getElementById("contact");if(!c)return;var nh=(document.querySelector(".top")||{offsetHeight:80}).offsetHeight;window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-(innerWidth<700?14:24),behavior:"instant"});},true);})();
 
 (function(){var sh=document.querySelector(".about-pg .sheet");if(!sh)return;var p=sh.querySelector("p");
  var ns=document.createElementNS("http://www.w3.org/2000/svg","svg");ns.setAttribute("class","d abf");ns.setAttribute("viewBox","0 0 60 80");ns.setAttribute("aria-hidden","true");
