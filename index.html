@@ -1953,8 +1953,8 @@ function renderFeat(){
     var zoomed=false;
     function geo4(){var W=stage.clientWidth,nh=(document.querySelector(".top")||{offsetHeight:0}).offsetHeight,vh=window.innerHeight,k=W/1551,mob=W<700;
       var sH=Math.round(640*W/1180);var h2e=document.getElementById("h-ft"),fa=document.querySelector(".ft-all"),ch=16+(h2e?h2e.offsetHeight:44)+18+(caps.offsetHeight||64)+18+22+(fa?fa.offsetHeight:48)+16;sH=mob?NaN:Math.max(380,Math.min(sH,vh-nh-ch));var Hs=W*857/1551;stage.style.height=sH+"px";sc.style.width=W+"px";
-      var z=Math.max(1,sH/(640*k));var cx=830,cy=335;
-      var t0="translate(0px,"+((sH-Hs)/2)+"px) scale(1)",t1="translate("+(W/2-cx*k*z)+"px,"+(sH/2-cy*k*z)+"px) scale("+z+")";
+      var lw=W*.2476+W*.012,lh=Hs*.275+W*.012,z=Math.max(1,Math.min(.985*W/lw,.985*sH/lh));var cxs=(.361+.1238)*W,cys=(.0735+.1375)*Hs;
+      var t0="translate(0px,"+((sH-Hs)/2)+"px) scale(1)",t1="translate("+(W/2-cxs*z)+"px,"+(sH/2-cys*z)+"px) scale("+z+")";
       sc.style.transform=zoomed?t1:t0;sc._t0=t0;sc._t1=t1;lapSz();}
     function lapSz(){var k=stage.clientWidth/1551,m=/scale\(([\d.]+)\)/.exec((zoomed?sc._t1:sc._t0)||"");if(m)k=parseFloat(m[1]);var px=Math.max(120,Math.round(1551*.2476*k));Array.prototype.forEach.call(stage.querySelectorAll(".kzli"),function(i){i.sizes=px+"px";});}
 function setZ(v){zoomed=v;stage.classList.toggle("zm",v);sc.style.transform=v?sc._t1:sc._t0;lapSz();}
