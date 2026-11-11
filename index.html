@@ -2084,7 +2084,7 @@ if($("#sv-make")){$("#sv-make").addEventListener("click",svBuild);
 function showPage(p){if(PGS.indexOf(p)<0)p="home";curPage=p;
   $$("[data-pg]").forEach(function(s){s.classList.toggle("pg-off",s.getAttribute("data-pg")!==p);});
   $$(".nav [data-go]").forEach(function(b){b.setAttribute("aria-current",String(b.getAttribute("data-go")===p));});
-  try{history.replaceState(null,"",p==="home"?"#home":"#/"+p);}catch(e){}
+  try{history.replaceState(null,"",p==="home"?(location.pathname+location.search):"#/"+p);}catch(e){}
   if(p==="photos"&&typeof renderAlbum==="function")renderAlbum();
   if(window.__alignNote)setTimeout(window.__alignNote,60);
   window.dispatchEvent(new Event("resize"));}
