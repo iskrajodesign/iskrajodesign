@@ -1261,6 +1261,9 @@ section.svc,section.work,section.photos{padding-top:0!important}
 .ab-x2 .tape:nth-child(2){left:10%!important;bottom:-12px!important;top:auto!important;transform:rotate(4deg)!important;background:color-mix(in srgb,var(--kraft) 92%,transparent)!important}
 @media(min-width:760px){.ab-notes .note-p{width:min(100%,25.5rem)!important}}
 @media(max-width:759px){.ab-x1,.ab-x2{margin-left:0;width:min(100%,26rem)}}
+.telrow{display:flex;gap:.5rem}
+.telrow select{flex:0 0 auto;width:auto;max-width:7.4rem;font:inherit;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:.55rem .4rem;border-radius:0}
+.telrow input{flex:1 1 auto;min-width:0}
 </style>
 </head><body>
 
@@ -2249,20 +2252,22 @@ var F=[
 ["site","text",0,{mk:"Постоечки веб-сајт",en:"Existing website",sr:"Postojeći veb-sajt"},{mk:"www.primer.mk",en:"www.example.com",sr:"www.primer.rs"}],
 ["type","radio",0,{mk:"Сакам",en:"I want",sr:"Želim"},[{mk:"Нова",en:"New",sr:"Novi"},{mk:"Редизајн",en:"Redesign",sr:"Redizajn"}]],
 ["name","text",1,{mk:"Име и презиме",en:"Full name",sr:"Ime i prezime"},{mk:"Марија Петровска",en:"Maria Petrovska",sr:"Marija Petrovska"}],
-["phone","tel",1,{mk:"Телефон",en:"Phone",sr:"Telefon"},{mk:"+389 70 123 456",en:"+389 70 123 456",sr:"+389 70 123 456"}],
+["phone","tel",1,{mk:"Телефон",en:"Phone",sr:"Telefon"},{mk:"70 123 456",en:"70 123 456",sr:"70 123 456"}],
 ["em","email",1,{mk:"Е-маил адреса",en:"E-mail address",sr:"E-mail adresa"},{mk:"marija@primer.com",en:"maria@example.com",sr:"marija@primer.com"}]];
 var TX={mk:{send:"Испратете",mail:"Отворете е-пошта",ok:"Вашата порака е испратена. Ќе ви се јавам наскоро.",req:"Пополнете ги полињата означени со *.",bad:"Внесете исправна е-маил адреса.",tel:"Внесете целосен телефонски број.",fail:"Не успеа, обидете се повторно или пишете директно.",sending:"Се испраќа…",subj:"Барање за веб-сајт"},
 en:{send:"Send",mail:"Open e-mail",ok:"Your message has been sent. I will get back to you soon.",req:"Please fill in the fields marked with *.",bad:"Enter a valid e-mail address.",tel:"Enter a full phone number.",fail:"That did not work, try again or write directly.",sending:"Sending…",subj:"Website request"},
 sr:{send:"Pošaljite",mail:"Otvorite e-poštu",ok:"Vaša poruka je poslata. Javiću vam se uskoro.",req:"Popunite polja označena sa *.",bad:"Unesite ispravnu e-mail adresu.",tel:"Unesite pun broj telefona.",fail:"Nije uspelo, pokušajte ponovo ili pišite direktno.",sending:"Šalje se…",subj:"Zahtev za veb-sajt"}};
 var form=document.getElementById("bform");if(!form)return;
-var els=[];
+var els=[],cc=null;
+var CC=[["MK","+389"],["RS","+381"],["ME","+382"],["BA","+387"],["HR","+385"],["SI","+386"],["AL","+355"],["XK","+383"],["BG","+359"],["GR","+30"],["TR","+90"],["RO","+40"],["HU","+36"],["AT","+43"],["DE","+49"],["CH","+41"],["IT","+39"],["FR","+33"],["ES","+34"],["NL","+31"],["BE","+32"],["GB","+44"],["IE","+353"],["SE","+46"],["NO","+47"],["DK","+45"],["FI","+358"],["PL","+48"],["CZ","+420"],["SK","+421"],["UA","+380"],["US/CA","+1"],["AU","+61"],["AE","+971"]];
 F.forEach(function(f){
   var wrap=document.createElement(f[1]==="radio"?"fieldset":"div");wrap.className="fld"+(f[1]==="radio"?" bf-wide":"");
   var lab=document.createElement(f[1]==="radio"?"legend":"label");var ctl=null;
   if(f[1]==="radio"){wrap.appendChild(lab);var box=document.createElement("div");box.className="chks rad";f[4].forEach(function(o,j){var l2=document.createElement("label");var c=document.createElement("input");c.type="radio";c.name="bf-type";c.value=j;l2.appendChild(c);var sp=document.createElement("span");l2.appendChild(sp);box.appendChild(l2);});wrap.appendChild(box);ctl=box;}
-  else{ctl=document.createElement("input");ctl.type=f[1];ctl.id="bf-"+f[0];if(f[1]==="tel"){ctl.value="+389 ";ctl.autocomplete="tel";ctl.inputMode="tel";}if(f[1]==="email"){ctl.autocomplete="email";}if(f[0]==="name")ctl.autocomplete="name";
-    if(f[2])ctl.setAttribute("aria-required","true");lab.setAttribute("for",ctl.id);wrap.appendChild(lab);wrap.appendChild(ctl);
-    ctl.addEventListener("input",function(){wrap.classList.remove("err");if(f[1]==="tel"&&ctl.value.indexOf("+389")!==0){ctl.value="+389 "+ctl.value.replace(/^\+?3?8?9?\s*/,"");}});}
+  else{ctl=document.createElement("input");ctl.type=f[1];ctl.id="bf-"+f[0];if(f[1]==="tel"){ctl.autocomplete="tel-national";ctl.inputMode="tel";}if(f[1]==="email"){ctl.autocomplete="email";}if(f[0]==="name")ctl.autocomplete="name";
+    if(f[2])ctl.setAttribute("aria-required","true");lab.setAttribute("for",ctl.id);wrap.appendChild(lab);
+    if(f[1]==="tel"){var row=document.createElement("div");row.className="telrow";cc=document.createElement("select");cc.id="bf-cc";cc.setAttribute("aria-label","Country code");CC.forEach(function(c){var o=document.createElement("option");o.value=c[1];o.textContent=c[0]+" "+c[1];cc.appendChild(o);});row.appendChild(cc);row.appendChild(ctl);wrap.appendChild(row);}else wrap.appendChild(ctl);
+    ctl.addEventListener("input",function(){wrap.classList.remove("err");});}
   form.appendChild(wrap);els.push({f:f,lab:lab,ctl:ctl,wrap:wrap});
 });
 function labels(){var l=L(),t=TX[l];
@@ -2272,21 +2277,21 @@ function labels(){var l=L(),t=TX[l];
 function val(){var l=L(),t=TX[l],bad=null,msg="";
   els.forEach(function(e){e.wrap.classList.remove("err");});
   els.forEach(function(e){if(!e.f[2])return;var v=e.ctl.value.trim(),ng=false;
-    if(e.f[1]==="tel"){var d=v.replace(/\D/g,"").replace(/^389/,"");if(!d){ng=true;msg=msg||t.req;}else if(d.length<7){ng=true;msg=msg||t.tel;}}
+    if(e.f[1]==="tel"){var d=v.replace(/\D/g,"");if(!d){ng=true;msg=msg||t.req;}else if(d.length<6){ng=true;msg=msg||t.tel;}}
     else if(!v){ng=true;msg=msg||t.req;}
     else if(e.f[1]==="email"&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ng=true;msg=msg||t.bad;}
     if(ng){e.wrap.classList.add("err");if(!bad)bad=e;}});
   return bad?{e:bad,msg:msg}:null;}
 function compose(){var l=L(),out=[TX[l].subj+" · IskraJoDesign",""];
   els.forEach(function(e){var v="";if(e.f[1]==="radio"){var c=e.ctl.querySelector("input:checked");v=c?e.f[4][+c.value][l]:"";}else v=e.ctl.value.trim();
-    if(e.f[1]==="tel"&&v.replace(/\D/g,"")==="389")v="";if(v)out.push(e.f[3][l]+": "+v);});
+    if(e.f[1]==="tel"&&v)v=cc.value+" "+v;if(v)out.push(e.f[3][l]+": "+v);});
   return out.join("\n");}
 document.getElementById("bf-make").addEventListener("click",function(){
   var l=L(),t=TX[l],ok=document.getElementById("bf-ok"),btn=this,m=document.getElementById("bf-mail");
   var r=val();if(r){ok.textContent=r.msg;r.e.ctl.focus();return;}
   var txt=compose(),mail=document.getElementById("bf-mail-i")||els[5].ctl,em=mail.value.trim();
   m.hidden=true;ok.textContent=t.sending;btn.disabled=true;
-  var data={_subject:t.subj+" · IskraJoDesign",message:txt,_captcha:"false",_template:"box",_replyto:em,name:els[3].ctl.value.trim(),phone:els[4].ctl.value.trim(),email:em};
+  var data={_subject:t.subj+" · IskraJoDesign",message:txt,_captcha:"false",_template:"box",_replyto:em,name:els[3].ctl.value.trim(),phone:cc.value+" "+els[4].ctl.value.trim(),email:em};
   fetch("https://formsubmit.co/ajax/"+MAIL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)})
    .then(function(rs){return rs.json().catch(function(){return {};}).then(function(j){if(!rs.ok||j.success==="false")throw 0;});})
    .then(function(){ok.textContent=t.ok;btn.disabled=false;})
