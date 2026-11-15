@@ -1401,6 +1401,10 @@ section.photos .album{width:100%;margin:0 auto}
 @media(min-width:1300px){.hobby-sec .album{--bh:400px;--ph:267px;--pw:323px}}
 @media(min-width:1100px) and (min-height:900px){.hobby-sec .album{--bh:470px;--ph:314px;--pw:380px}}
 @media(min-width:1100px) and (max-height:700px){.hobby-sec .album{--bh:300px;--ph:200px;--pw:243px}}
+
+/* v196 last About card = white lined paper like card 2 */
+.beliefs .note-p:nth-child(4){background-color:var(--paper)!important;background-image:repeating-linear-gradient(transparent 0 30px,var(--grid) 30px 31px)!important}
+.beliefs .note-p:nth-child(4)>[data-i18n]{line-height:31px}
 </style>
 </head><body>
 
@@ -2340,8 +2344,8 @@ setLang(lang);
   (function(){var b2=document.getElementById("cta-book2");if(b2&&CAL){b2.href=CAL;b2.target="_blank";b2.rel="noopener";}else if(b2){b2.href="#contact";}
     var mb=document.getElementById("mail-btn"),mt=document.getElementById("mail-todo");
     
-    function alignNote(){var c=document.querySelector(".note-p:nth-child(2)");if(!c)return;var s=c.querySelector("[data-i18n]");if(!s)return;
-      var y=s.offsetTop-4;c.style.backgroundPosition="0 "+(((y%31)+31)%31)+"px";}
+    function alignNote(){[2,4].forEach(function(n){var c=document.querySelector(".note-p:nth-child("+n+")");if(!c)return;var s=c.querySelector("[data-i18n]");if(!s)return;
+      var y=s.offsetTop-4;c.style.backgroundPosition="0 "+(((y%31)+31)%31)+"px";});}
     alignNote();window.addEventListener("resize",alignNote);window.addEventListener("load",alignNote);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(alignNote);
     window.__alignNote=alignNote;})();
   var lie=cat.querySelector(".c-lie");
