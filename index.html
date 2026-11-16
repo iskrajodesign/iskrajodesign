@@ -1459,6 +1459,9 @@ section.photos .album{width:100%;margin:0 auto}
 .beliefs{padding-bottom:24px!important}
 .hobby-sec{padding-top:24px}
 }
+
+/* v211 Услуги now sits on the home page after Зошто јас: same 90px top padding as the other sections */
+section.svc{padding-top:90px!important}
 </style>
 </head><body>
 
@@ -1568,33 +1571,6 @@ section.photos .album{width:100%;margin:0 auto}
     <div class="feat-dwell" aria-hidden="true"></div>
   </section>
 
-  <section id="services" class="svc" data-pg="services" aria-labelledby="h-sv">
-    <p class="pg-back"><button class="more" data-go="home" data-i18n="bk"></button></p>
-    <div class="sheet">
-      <span class="tape" style="left:40px;top:-12px"></span>
-      <div class="sv-l"><div class="sv-a">
-          <p class="mono" style="color:var(--rose)" data-i18n="sv_k"></p>
-          <h2 id="h-sv" data-i18n="sv_h2"></h2>
-          <p data-i18n="sv_p2"></p>
-          <ul class="sv-q">
-            <li><input class="svr" type="radio" name="svn" id="svn1" value="1"><label class="svl" for="svn1"><div class="q-t"><h3 data-i18n="q1h"></h3><p data-i18n="q1p"></p></div><em data-i18n="q1t"></em></label></li>
-            <li><input class="svr" type="radio" name="svn" id="svn2" value="2"><label class="svl" for="svn2"><div class="q-t"><h3 data-i18n="q2h"></h3><p data-i18n="q2p"></p></div><em data-i18n="q2t"></em></label></li>
-            <li><input class="svr" type="radio" name="svn" id="svn3" value="3"><label class="svl" for="svn3"><div class="q-t"><h3 data-i18n="q3h"></h3><p data-i18n="q3p"></p></div><em data-i18n="q3t"></em></label></li>
-            <li><input class="svr" type="radio" name="svn" id="svn4" value="4"><label class="svl" for="svn4"><div class="q-t"><h3 data-i18n="q4h"></h3><p data-i18n="q4p"></p></div><em data-i18n="q4t"></em></label></li>
-              </ul></div>
-          <div class="sv-b">
-          <span class="sv-stamp" aria-hidden="true"></span>
-          <div class="sv-lines">
-          <p class="sv-addr" data-i18n="sv_addr"></p>
-          <p class="sv-tech" data-i18n="sv_tech"></p>
-          <p class="sv-price" data-i18n="sv_price"></p>
-          </div>
-          <p class="sv-cta"><a class="cta" id="cta-sv" href="#contact" data-go="contact" data-i18n="cta"></a></p>
-          </div></div>
-        </div>
-        <p class="sv-whyrow"><a class="cta" id="cta-why" href="#why" data-go="why" data-i18n="cta_why"></a></p>
-  </section>
-
   <section id="work" class="work" data-pg="work" aria-labelledby="h-work">
     <p class="pg-back"><button class="more" data-go="home" data-i18n="bk"></button> <button class="more" data-go="featured" data-i18n="ft_k"></button></p>
     <h2 id="h-work" data-i18n="work_h"></h2>
@@ -1619,6 +1595,31 @@ section.photos .album{width:100%;margin:0 auto}
       <li><span class="mono"><svg class="d wf" aria-hidden="true"><use href="#s-flower"/></svg></span><div><h3 data-i18n="w25h"></h3></div></li>
     </ol></div>
 </div>
+  </section>
+
+  <section id="services" class="svc" data-pg="home" aria-labelledby="h-sv">
+    <div class="sheet">
+      <span class="tape" style="left:40px;top:-12px"></span>
+      <div class="sv-l"><div class="sv-a">
+          <p class="mono" style="color:var(--rose)" data-i18n="sv_k"></p>
+          <h2 id="h-sv" data-i18n="sv_h2"></h2>
+          <p data-i18n="sv_p2"></p>
+          <ul class="sv-q">
+            <li><input class="svr" type="radio" name="svn" id="svn1" value="1"><label class="svl" for="svn1"><div class="q-t"><h3 data-i18n="q1h"></h3><p data-i18n="q1p"></p></div><em data-i18n="q1t"></em></label></li>
+            <li><input class="svr" type="radio" name="svn" id="svn2" value="2"><label class="svl" for="svn2"><div class="q-t"><h3 data-i18n="q2h"></h3><p data-i18n="q2p"></p></div><em data-i18n="q2t"></em></label></li>
+            <li><input class="svr" type="radio" name="svn" id="svn3" value="3"><label class="svl" for="svn3"><div class="q-t"><h3 data-i18n="q3h"></h3><p data-i18n="q3p"></p></div><em data-i18n="q3t"></em></label></li>
+            <li><input class="svr" type="radio" name="svn" id="svn4" value="4"><label class="svl" for="svn4"><div class="q-t"><h3 data-i18n="q4h"></h3><p data-i18n="q4p"></p></div><em data-i18n="q4t"></em></label></li>
+              </ul></div>
+          <div class="sv-b">
+          <span class="sv-stamp" aria-hidden="true"></span>
+          <div class="sv-lines">
+          <p class="sv-addr" data-i18n="sv_addr"></p>
+          <p class="sv-tech" data-i18n="sv_tech"></p>
+          <p class="sv-price" data-i18n="sv_price"></p>
+          </div>
+          <p class="sv-cta"><a class="cta" id="cta-sv" href="#contact" data-go="contact" data-i18n="cta"></a></p>
+          </div></div>
+        </div>
   </section>
 
   <section id="words" class="words" data-pg="none" aria-labelledby="h-words">
@@ -2388,12 +2389,12 @@ if($("#d-back"))$("#d-back").addEventListener("click",function(){closeDialog();}
 (function(){var old=$$("[data-go]");old.forEach(function(b){var c=b.cloneNode(true);b.parentNode.replaceChild(c,b);});
   $$("[data-go]").forEach(function(b){b.addEventListener("click",function(ev){ev.preventDefault();menu(false);var g=b.getAttribute("data-go");
     if(b.closest(".pg-back")&&g!=="featured"){var e=navStack.pop();if(e){showPage(e.p);setTimeout(function(){window.scrollTo(0,e.y);},40);}else{showPage("home");window.scrollTo(0,0);}return;}
-    if(g!==curPage&&(g==="work"||g==="services"||g==="photos"||g==="about"||curPage!=="home"))navStack.push({p:curPage,y:window.scrollY});
-    if(g==="work"||g==="services"||g==="photos"||g==="about"){showPage(g);window.scrollTo(0,0);}
+    if(g!==curPage&&(g==="work"||g==="photos"||g==="about"||curPage!=="home"))navStack.push({p:curPage,y:window.scrollY});
+    if(g==="work"||g==="photos"||g==="about"){showPage(g);window.scrollTo(0,0);}
     else{var was=curPage;showPage("home");if(g==="home")window.scrollTo({top:0,behavior:"instant"});else if(g==="why"){var el=document.getElementById("why");setTimeout(function(){if(!el)return;window.scrollTo({top:Math.max(0,el.getBoundingClientRect().top+scrollY-520),behavior:"instant"});setTimeout(function(){el.scrollIntoView({behavior:"smooth",block:"start"});},60);},was==="home"?0:80);}else setTimeout(function(){scrollToId(g);},was==="home"?0:80);}});});})();
 renderFeat();renderSv();
 (function(){var b=document.getElementById("to-album");if(b)b.addEventListener("click",function(){var A=document.querySelector(".hobby-sec");if(A)A.scrollIntoView({behavior:"smooth",block:"start"});});})();
-var m0=(location.hash||"").match(/^#\/(work|services|photos|about)$/);showPage(m0?m0[1]:"home");
+var m0=(location.hash||"").match(/^#\/(work|services|photos|about)$/);showPage(m0&&m0[1]!=="services"?m0[1]:"home");if(m0&&m0[1]==="services")setTimeout(function(){scrollToId("services");},250);
 
 function bindOrphans(){$$("[data-i18n]").forEach(function(n){var tg=n.tagName;if(!(tg==="P"||tg==="H2"||tg==="H3"||tg==="H4"||tg==="BLOCKQUOTE"||n.classList.contains("lead")))return;
   if(n.children.length)return;var w=n.textContent.split(" ");if(w.length<4)return;var k=(w.length>=7&&tg!=="H2"&&tg!=="H3")?3:2;while(k>=2&&w.slice(-k).join(" ").length>(k>2?15:17))k--;if(k<2)return;n.textContent=w.slice(0,-k).join(" ")+" "+w.slice(-k).join("\u00A0");});}
